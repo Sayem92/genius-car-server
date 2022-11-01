@@ -27,6 +27,14 @@ async function run() {
             res.send(services)
         });
 
+        // single service {} load form mongodb-------------
+        app.get('/services/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: id }
+            const service = await serviceCollection.findOne(query)
+            res.send(service);
+        });
+
        
 
 
